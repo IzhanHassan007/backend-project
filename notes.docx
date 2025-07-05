@@ -16,9 +16,17 @@ X---------------X-------------X--------------X--------------X--------------
 
 Folders - Files for Project...
 1- public/temp - (.gitkeep) // this is for to keep git in repo unless its empty or not.
-2- .gitignore - this is for files which ignore by git. "use gitignore generator" (https://mrkandreev.name/snippets/gitignore-generator/#Node)
+2- .gitignore - this is for files which ignore by git. "use gitignore generator"
 3- .env file 
 4- src folder - Files are app.js, constant.js, index.js
+5- src folder - mkdir controllers, db, middlewares, models, routes, utils
+
+** Controller = Major Functionality.
+** db = database connection logic.
+** middlewares = code run in-between.
+** models = database models.
+** routes = app.get/insta, /twitter.
+** utils = utilities, 
 
 X---------------X-------------X--------------X--------------X--------------
 
