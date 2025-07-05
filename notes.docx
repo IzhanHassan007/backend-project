@@ -33,3 +33,4 @@ X---------------X-------------X--------------X--------------X--------------
 - We use nodemon for restart server automatically (npm i -D nodemon)
 - dev dependency installation. (only for development not for production)
 - "scripts": { "src": "nodemon src/index.js"},
+- We install Prettier for Beautification of Code Setup. {.prettierrc , ,prettierignore} (npm i -D prettier)
