@@ -2,14 +2,18 @@
   "name": "06_how-to-setup-a-professional-backend-project",
   "version": "1.0.0",
   "description": "A Backend Project ",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "src": "nodemon src/index.js"
   },
   "keywords": [
     "JavaScript",
     "Backend"
   ],
   "author": "Syed Izhan Maqsood",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
 }
