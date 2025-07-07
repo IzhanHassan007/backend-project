@@ -50,3 +50,61 @@ connectDB();
 
 ()() - IFFI Conectp..
 (Function)(Immediatly Execute)
+
+X---------------X-------------X--------------X--------------X--------------
+
+08- Custom API Response...
+
+.. npm i cookie-parser
+.. npm i cors - cross origin resousrce sharing
+    app.use(cors()) - app.use hum tb use krengy jb hum middlewares use kr rhy hony  
+
+X---------------X-------------X--------------X--------------X--------------
+
+(app.js)
+Ye file Express app ki core configuration handle karti hai.
+Isme hum:
+1️⃣ CORS setup karte hain taake frontend-backend safely connect ho sakein.
+2️⃣ Body parsers use karte hain taake JSON aur form data easily handle ho jaye.
+3️⃣ Static files serve karte hain public folder se, jaise images ya CSS.
+4️⃣ Cookies ko parse karte hain taake authentication ya sessions kaam karein.
+
+Aakhir mein app ko export karte hain taake dusri files mein server start kiya ja sake.
+
+X---------------X-------------X--------------X--------------X--------------
+
+(asyncHandler.js)
+- asyncHandler aik higher order function hai jo har async request handler ko wrap karta hai taake errors ko automatically handle kiya ja sake.
+- Isse humein har controller mein alag se try-catch nahi likhna padta, aur agar koi error aaye to Express ka error handler use process kar leta hai.
+
+X---------------X-------------X--------------X--------------X--------------
+
+(apiError.js)
+- apiError aik custom error class hai jo hum API mein consistent error response dene ke liye banate hain.
+- Iska maksad ye hai ke jab bhi koi error aaye to hum ek standard format mein status code, message aur extra errors bhej saken — taake frontend ko samajhne mein asani ho aur debugging bhi easy ho jaye.
+
+X---------------X-------------X--------------X--------------X--------------
+
+(apiResponse.js)
+ApiResponse aik custom response class hai jo API ke successful responses ko ek standard format mein bhejne ke liye use hoti hai.
+Isme status code, data, aur message hota hai — taake har API response consistent aur samajhne mein easy ho.
+
+X---------------X-------------X--------------X--------------X--------------
+
+HTTP status codes batate hain ke server se response ka nature kya hai:
+
+1️⃣ Informational responses (100–199)
+Server keh raha hai: “Request mili hai, abhi process ho rahi hai.”
+
+2️⃣ Successful responses (200–299)
+Matlab: “Sab theek hai, request successfully complete ho gayi.”
+
+3️⃣ Redirection messages (300–399)
+Client ko bola jata hai: “Resource kisi aur jagah shift ho gaya, wahan chalo.”
+
+4️⃣ Client error responses (400–499)
+Matlab: “Request galat hai, user ki taraf se koi masla hai.” (e.g., 404 Not Found)
+
+5️⃣ Server error responses (500–599)
+Matlab: “Server ki taraf se masla hai, request process nahi ho saki.”
+

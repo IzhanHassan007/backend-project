@@ -10,7 +10,19 @@ dotenv.config({
 });
 
 // Database se connect karo
-connectDB();
+connectDB()
+
+// Agar DB connect ho jaye to server chalayo
+.then(() => {
+  app.listen(process.env.PORT || 8000 , () => {
+    console.log(`Server is running at port : ${process.env.PORT}`)
+  }) 
+})
+
+// Agar DB connection fail ho jaye to error dikhayo
+.catch((error) => {
+  console.log("MONGODB CONNECTION FAILED !! ", error)
+})
 
 
 
