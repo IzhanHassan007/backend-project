@@ -28,17 +28,17 @@ const videoSchema = new Schema(
             type: Number,
             default: 0,
         },
-        isPublished:{              // Publish status (default true)
+        isPublished:{              
             type: Boolean,
             default: true,
         },
-        owner:{                    // Kis user ne upload ki (User model ka reference)
+        owner:{                    
             type: Schema.Types.ObjectId,
             ref: "User",
         }
     },
     {
-        timestamps: true,          // CreatedAt & UpdatedAt auto set
+        timestamps: true,          
     }
 );
 
