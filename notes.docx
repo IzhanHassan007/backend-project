@@ -40,7 +40,7 @@ X---------------X-------------X--------------X--------------X--------------
 07- How to connect database...
 
 - npm i mongoose express dotenv
-- Database is in another continet...
+- Database is in another continent...
 - Data base m hamesha "Try & Catch" lagana h or "Resolve & Reject"..
 - Data base m hamesha "Async & Await" lagana h q k time lagta h..
 
@@ -48,7 +48,7 @@ Not A Better Approach -
 function connectDB(){};
 connectDB();
 
-()() - IFFI Conectp..
+()() - IFFI Concept..
 (Function)(Immediatly Execute)
 
 X---------------X-------------X--------------X--------------X--------------
@@ -108,3 +108,38 @@ Matlab: “Request galat hai, user ki taraf se koi masla hai.” (e.g., 404 Not 
 5️⃣ Server error responses (500–599)
 Matlab: “Server ki taraf se masla hai, request process nahi ho saki.”
 
+X---------------X-------------X--------------X--------------X--------------
+
+09- User and Video Model...
+
+- database m kisi bh field ko searchable banana h optimize way m to usky model m index: true krdo
+
+"npm i mongoose-aggregate-paginate-v2"
+- This allow to write aggregate queries.
+
+"npm i bcrypt"
+- It helps you to hash your password.
+
+-  JSON Web Tokens (JWT) generate aur verify karne ke liye use hota hai, jo authentication (login/session management) aur secure data transfer ke liye hotay hain.
+
+error - req - response - next
+
+"
+userSchema.pre("save", async function (next) {
+    if(!this.isModified("password")) return next();
+
+    this.password = bcrypt.hash(this.password, 10) 
+    next() 
+})
+"
+
+- pre("save") ka matlab: Jab user MongoDB me save hone wala ho, us se pehle ye function chalega.
+
+- if(!this.isModified("password")) return next();
+Agar password change hi nahi hua (ya new set nahi kiya), to directly next step pe chala jao (hash na karo).
+
+- this.password = bcrypt.hash(this.password, 10)
+Agar password change hua hai, to usay bcrypt se encrypt (hash) karo (10 rounds salt ke).
+
+- next()
+Process complete hone ke baad agli step pe move karo (save ho jaye).
