@@ -2,9 +2,10 @@ import mongoose, {Schema, SchemaType} from "mongoose";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 
+// User ka schema define kar rahe hain
 const userSchema = new Schema(
     {
-        user:{
+        user:{                 // Username (unique, lowercase, trimmed)
             type: String,
             required: true,
             unique: true,
@@ -12,56 +13,58 @@ const userSchema = new Schema(
             trim: true,
             index: true,
         },
-        email:{
+        email:{                // Email (unique, lowercase, trimmed)
             type: String,
             required: true,
             unique: true,
             lowercase: true,
             trim: true,
         },
-        fullName:{
+        fullName:{             // Full Name (search k liye index)
             type: String,
             required: true,
             trim: true,
             index: true,
         },
-        avatar:{
-            type: String, // CLOUDINARY URL
+        avatar:{               // Profile image (Cloudinary URL)
+            type: String,
             required: true,
         },
-        coverImage:{
-            type: String, // CLOUDINARY URL
+        coverImage:{           // Cover image (optional)
+            type: String,
         },
-        watchHistory:[
+        watchHistory:[         // Dekhe gaye videos ka record
             {
                 type: Schema.Types.ObjectId,
                 ref: "Video",
             }
         ],
-        password:{
+        password:{             // User ka password (hashed save hoga)
             type: String,
             required: [true, "Password is required"]
         },
-        refreshToken:{
+        refreshToken:{         // JWT refresh token (re-login k liye)
             type: String,       
         }
     },
     {
-        timestamps: true,
+        timestamps: true,      // CreatedAt & UpdatedAt auto generate
     }
 );
 
+// Save sy pehle password hash karo
 userSchema.pre("save", async function (next) {
-    if(!this.isModified("password")) return next();
-
-    this.password = bcrypt.hash(this.password, 10) 
+    if(!this.isModified("password")) return next();   // Agar password change nahi to skip
+    this.password = bcrypt.hash(this.password, 10)    // Password ko 10 salt rounds k sath hash karo
     next() 
 })
 
+// Password check karne ka method (login k liye)
 userSchema.methods.isPasswordCorrect = async function (password) {
-    return await bcrypt.compare(password, this.password)
+    return await bcrypt.compare(password, this.password)  // Entered vs DB hashed compare
 }
 
+// Access token generate karne ka method (short term login)
 userSchema.methods.generateAccessToken = function(){
     return jwt.sign(
         {
@@ -77,6 +80,7 @@ userSchema.methods.generateAccessToken = function(){
     )
 }
 
+// Refresh token generate karne ka method (long session)
 userSchema.methods.refreshAccessToken = function(){
     return jwt.sign(
         {
@@ -89,4 +93,5 @@ userSchema.methods.refreshAccessToken = function(){
     )
 }
 
+// Model ko export kar rahe hain
 export const User = mongoose.model("User", userSchema);

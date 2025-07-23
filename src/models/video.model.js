@@ -1,46 +1,49 @@
 import mongoose, {Schema} from "mongoose";
 import mongooseAggregatePaginate from "mongoose-aggregate-paginate-v2";
 
+// Video ka schema define kar rahe hain
 const videoSchema = new Schema(
     {
-        videoFile: {
-            type: String, // cloudinary url
-            required: true,
-        },
-        thumbnail:{
-            type: String, // cloudinary url
-            required: true,
-        },
-        title:{
+        videoFile: {               // Video file ka URL (Cloudinary)
             type: String, 
             required: true,
         },
-        description:{
+        thumbnail:{                // Video ka thumbnail URL
             type: String, 
             required: true,
         },
-        duration:{
+        title:{                    // Video ka title
+            type: String, 
+            required: true,
+        },
+        description:{              // Video ka description
+            type: String, 
+            required: true,
+        },
+        duration:{                 // Video ka duration (seconds/minutes me)
             type: Number, 
             required: true,
         },
-        views: {
+        views: {                   // Kitni dafa dekhi gayi (default 0)
             type: Number,
             default: 0,
         },
-        isPublished:{
+        isPublished:{              // Publish status (default true)
             type: Boolean,
             default: true,
         },
-        owner:{
+        owner:{                    // Kis user ne upload ki (User model ka reference)
             type: Schema.Types.ObjectId,
             ref: "User",
         }
     },
     {
-        timestamps: true,
+        timestamps: true,          // CreatedAt & UpdatedAt auto set
     }
 );
 
+// Pagination plugin lagaya (aggregation k sath paging easy hogi)
 videoSchema.plugin(mongooseAggregatePaginate)
 
-export const video = mongoose.model("video", videoModel)
+// Model export kar rahe hain
+export const Video = mongoose.model("Video", videoSchema)
