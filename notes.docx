@@ -143,3 +143,13 @@ Agar password change hua hai, to usay bcrypt se encrypt (hash) karo (10 rounds s
 
 - next()
 Process complete hone ke baad agli step pe move karo (save ho jaye).
+
+X---------------X-------------X--------------X--------------X--------------
+
+10- How to Upload FIle in backend...
+
+npm i cloudinary 
+cloudinary → Ye Cloudinary service ka SDK h, jo images/videos ko cloud par upload, manage aur access krny k liye use hota h.
+
+npm i multer
+multer → Ye middleware h jo file uploads (images, videos etc.) ko handle krny k liye use hota h (Express apps me).
