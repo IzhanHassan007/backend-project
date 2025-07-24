@@ -143,3 +143,179 @@ Agar password change hua hai, to usay bcrypt se encrypt (hash) karo (10 rounds s
 
 - next()
 Process complete hone ke baad agli step pe move karo (save ho jaye).
+
+X---------------X-------------X--------------X--------------X--------------
+
+10- How to Upload FIle in backend...
+
+npm i cloudinary 
+cloudinary → Ye Cloudinary service ka SDK h, jo images/videos ko cloud par upload, manage aur access krny k liye use hota h.
+
+npm i multer
+multer → Ye middleware h jo file uploads (images, videos etc.) ko handle krny k liye use hota h (Express apps me).
+
+X---------------X-------------X--------------X--------------X--------------
+
+10- HTTP crash course | http Methods | http headers
+
+HTTP (HyperText Transfer Protocol):
+
+Ye web par data transfer ka basic protocol hai.
+
+Jab aap HTTP use karte ho, browser aur server ke beech data plain text me jata hai.
+
+Iska matlab koi hacker easily data intercept (read/change) kar sakta hai.
+
+Port 80 use karta hai.
+
+Mostly normal websites (blogs, news, simple info pages) use karti hain.
+
+HTTPS (HyperText Transfer Protocol Secure):
+
+Ye HTTP ka secure version hai.
+
+SSL/TLS certificates use karta hai jo data ko encrypt karte hain.
+
+Agar koi hacker data intercept kare bhi, wo read nahi kar sakta.
+
+Port 443 use karta hai.
+
+Ye login pages, banking, payments, e-commerce ke liye must hai.
+
+Browser me padlock icon dikhata hai jo trust ka signal hai.
+
+Easy samajh lo:
+👉 HTTP = normal road (koi bhi sun/see sakta hai).
+👉 HTTPS = secure tunnel (encrypted, safe).
+
+1. Request Header
+Kya hai? → Client (browser/app) se server ko bheja gaya info.
+
+Use: Server ko batata hai ke kis tarah ka data chahiye aur client ka environment kaisa hai.
+
+Example:
+
+GET /index.html
+
+Host: www.example.com
+
+User-Agent: Chrome/120
+
+2. Response Header
+Kya hai? → Server ka client ko jawab me bheja gaya info.
+
+Use: Client ko batata hai ke response me kya aa raha hai aur kaise handle karna hai.
+
+Example:
+
+Content-Type: text/html
+
+Content-Length: 348
+
+Server: Apache
+
+3. Representation Header
+Kya hai? → Ye data ki type & format ko represent karta hai.
+
+Use: Batata hai ke response ka content kaisa hai (JSON, HTML, image, etc.).
+
+Example:
+
+Content-Type: application/json
+
+Content-Encoding: gzip
+
+4. Payload Header
+Kya hai? → Request/response ke actual data (body) ke baare me info deta hai.
+
+Use: Batata hai ke body me kitna data hai, format kya hai, etc.
+
+Example:
+
+Content-Length: 1024
+
+Content-Type: multipart/form-data
+
+Easy Samajh Lo:
+
+Request Header → Client ki info (browser → server).
+
+Response Header → Server ka jawab (server → browser).
+
+Representation Header → Data kis type ka hai.
+
+Payload Header → Body ke data ka size/type.
+
+📌 HTTP Status Codes
+🔹 Categories (Kis type ke codes hotay hain):
+1xx → Informational
+Matlab server ne request le li aur ab process ho rahi hai.
+
+2xx → Success
+Matlab request sahi tarah process ho gayi aur successful response diya gaya.
+
+3xx → Redirection
+Matlab resource kahi aur shift ho gaya, browser ko dusri jagah bhejna hai.
+
+4xx → Client Error
+Matlab request bhejne wale (client) ki galti hai, jaise wrong URL ya unauthorized access.
+
+5xx → Server Error
+Matlab server ki taraf se koi problem hui hai.
+
+✅ Important Codes (Zyada use hone walay):
+🔹 1xx – Informational
+
+100 → Continue
+(Request aagay bhejni hai, server ready hai)
+
+102 → Processing
+(Request process ho rahi hai, wait karo)
+
+🔹 2xx – Success
+
+200 → OK
+(Request bilkul theek thi aur server ne sahi response diya)
+
+201 → Created
+(Naya resource successfully create ho gaya)
+
+202 → Accepted
+(Request le li gayi hai aur process me hai)
+
+🔹 3xx – Redirection
+
+307 → Temporary Redirect
+(Resource temporarily kisi aur jagah hai)
+
+308 → Permanent Redirect
+(Resource permanently shift ho gaya)
+
+🔹 4xx – Client Error
+
+400 → Bad Request
+(Request me kuch ghalat tha)
+
+401 → Unauthorized
+(Access ke liye login/credentials chahiye)
+
+402 → Payment Required
+(Is resource ke liye payment chahiye)
+
+404 → Not Found
+(Jo resource mangi thi wo nahi mili)
+
+🔹 5xx – Server Error
+
+500 → Internal Server Error
+(Server ke andar koi problem aa gayi)
+
+504 → Gateway Timeout
+(Server response nahi de raha, time out ho gaya)
+
+✏️ Tip for Notes:
+✔ 2xx = Success ✅
+✔ 3xx = Redirect 🔀
+✔ 4xx = Client ki galti ❌
+✔ 5xx = Server ki problem ⚠️
+
