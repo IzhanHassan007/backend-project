@@ -1,7 +1,7 @@
 // Ye higher order function hai jo kisi bhi request handler ko wrap karega
 const asyncHandler = (requestHandler) => {
 // Ye inner function actual Express middleware banata hai
-    (req, res, next) => {
+    return (req, res, next) => {
     // ✅ Promise.resolve se async handler ko promise bana kar error catch karta hai
     // Agar koi error aaye to next(err) se Express ke error handler tak chala jaye
         Promise.resolve(requestHandler(req, res, next))

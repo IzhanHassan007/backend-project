@@ -35,5 +35,14 @@ app.use(express.static("public"));
 // Cookies ko parse karo
 app.use(cookieParser());
 
+// Routes Import
+import  userRouter from './routes/user.routes.js'
+
+
+// Routes Declearation
+app.use("/api/v1/users", userRouter)
+
+// http://localhost:8000//api/v1/users/register
+
 // App ko export karo taake server.js ya index.js mein use ho sake
 export { app };
