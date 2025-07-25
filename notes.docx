@@ -152,6 +152,7 @@ npm i cloudinary
 cloudinary → Ye Cloudinary service ka SDK h, jo images/videos ko cloud par upload, manage aur access krny k liye use hota h.
 
 npm i multer
+<<<<<<< HEAD
 multer → Ye middleware h jo file uploads (images, videos etc.) ko handle krny k liye use hota h (Express apps me).
 
 X---------------X-------------X--------------X--------------X--------------
@@ -319,3 +320,21 @@ Matlab server ki taraf se koi problem hui hai.
 ✔ 4xx = Client ki galti ❌
 ✔ 5xx = Server ki problem ⚠️
 
+=======
+multer → Ye middleware h jo file uploads (images, videos etc.) ko handle krny k liye use hota h (Express apps me).
+>>>>>>> ec1aa16e63e56f78734402945a9d216a614651eb
+
+X---------------X-------------X--------------X--------------X--------------
+
+10- Logic building | Register controller
+
+{user.controller.js}
+// Get user details from Front-End - depend on model (username,email,fullNam)
+// validation - user ny email empty to nh bheja, correct format
+// check user already exist: username or email
+// check files for images, avatar
+// upload them to Cloudinary, avatar
+// create user Object - create entry in db
+// remove password & refresh token from response
+// check for user creation 
+// return response || Error    
