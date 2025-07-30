@@ -5,7 +5,7 @@ import bcrypt from "bcrypt";
 // User ka schema define kar rahe hain
 const userSchema = new Schema(
     {
-        user:{                 // Username (unique, lowercase, trimmed)
+        username:{                 // Username (unique, lowercase, trimmed)
             type: String,
             required: true,
             unique: true,

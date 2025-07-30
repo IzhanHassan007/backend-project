@@ -23,7 +23,8 @@ const uploadOnCloudinary = async (localFilePath) => {
         })
 
         // Agar successfully upload hogyi to response.url print kro
-        console.log("File is uploaded on Cloudinary ", response.url);
+        // console.log("File is uploaded on Cloudinary ", response.url);
+        fs.unlinkSync(localFilePath)
         return response;
 
     } catch (error) {

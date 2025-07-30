@@ -1,5 +1,5 @@
 // Custom Error Class jo Express ya API mein use hogi
-class apiError extends Error {
+class ApiError extends Error {
 
 // Constructor mein sab properties set karo
   constructor(
@@ -27,4 +27,4 @@ class apiError extends Error {
   }
 }
 
-export { apiError };
+export {ApiError}

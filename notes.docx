@@ -152,7 +152,7 @@ npm i cloudinary
 cloudinary → Ye Cloudinary service ka SDK h, jo images/videos ko cloud par upload, manage aur access krny k liye use hota h.
 
 npm i multer
-<<<<<<< HEAD
+
 multer → Ye middleware h jo file uploads (images, videos etc.) ko handle krny k liye use hota h (Express apps me).
 
 X---------------X-------------X--------------X--------------X--------------
@@ -326,14 +326,13 @@ multer → Ye middleware h jo file uploads (images, videos etc.) ko handle krny 
 
 X---------------X-------------X--------------X--------------X--------------
 
-<<<<<<< HEAD
 13- REFISTER USER
 
 if (
     [fullName, email, username. password].some((field) => 
     field?.trim() === "")) 
 ismy hum ny array bana k sb field lagae, phr some laga k call back pass kia, phr hum kehty k agr ye field h (field?) to usko trim krdo, agr trim k bd bh wo empty h (=== "") to wo true return kry ga,agr wo TRUE return kry ga to wo field khali thaa
-=======
+
 10- Logic building | Register controller
 
 {user.controller.js}
@@ -346,4 +345,18 @@ ismy hum ny array bana k sb field lagae, phr some laga k call back pass kia, phr
 // remove password & refresh token from response
 // check for user creation 
 // return response || Error    
->>>>>>> a34d4e1020d85347497fb098487dbf771a8f1bf5
+
+X---------------X-------------X--------------X--------------X--------------
+
+15- How to use postman for backend
+
+  let coverImageLocalPath;
+    if (req.files && Array.isArray(req.files.coverImage) && req.files.coverImage.length > 0) {
+        coverImageLocalPath = req.files.coverImage[0].path
+    }
+
+-- Checking for coverImage h ya nh...
+- if (req.files && Array.isArray) aya ya nh aya , isArray mtlb Array aya ya nh,
+- (req.files.coverImage) - check coverImage h ya nh
+- req.files.coverImage.length > 0) - agr iski length 0 sy zyada h
+- overImageLocalPath = req.files.coverImage[0].path - 0 element m sy path nikal lo
