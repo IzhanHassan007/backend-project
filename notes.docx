@@ -326,9 +326,24 @@ multer → Ye middleware h jo file uploads (images, videos etc.) ko handle krny 
 
 X---------------X-------------X--------------X--------------X--------------
 
+<<<<<<< HEAD
 13- REFISTER USER
 
 if (
     [fullName, email, username. password].some((field) => 
     field?.trim() === "")) 
 ismy hum ny array bana k sb field lagae, phr some laga k call back pass kia, phr hum kehty k agr ye field h (field?) to usko trim krdo, agr trim k bd bh wo empty h (=== "") to wo true return kry ga,agr wo TRUE return kry ga to wo field khali thaa
+=======
+10- Logic building | Register controller
+
+{user.controller.js}
+// Get user details from Front-End - depend on model (username,email,fullNam)
+// validation - user ny email empty to nh bheja, correct format
+// check user already exist: username or email
+// check files for images, avatar
+// upload them to Cloudinary, avatar
+// create user Object - create entry in db
+// remove password & refresh token from response
+// check for user creation 
+// return response || Error    
+>>>>>>> a34d4e1020d85347497fb098487dbf771a8f1bf5
