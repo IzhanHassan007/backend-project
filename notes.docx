@@ -152,6 +152,7 @@ npm i cloudinary
 cloudinary → Ye Cloudinary service ka SDK h, jo images/videos ko cloud par upload, manage aur access krny k liye use hota h.
 
 npm i multer
+<<<<<<< HEAD
 multer → Ye middleware h jo file uploads (images, videos etc.) ko handle krny k liye use hota h (Express apps me).
 
 X---------------X-------------X--------------X--------------X--------------
@@ -319,3 +320,15 @@ Matlab server ki taraf se koi problem hui hai.
 ✔ 4xx = Client ki galti ❌
 ✔ 5xx = Server ki problem ⚠️
 
+=======
+multer → Ye middleware h jo file uploads (images, videos etc.) ko handle krny k liye use hota h (Express apps me).
+>>>>>>> ec1aa16e63e56f78734402945a9d216a614651eb
+
+X---------------X-------------X--------------X--------------X--------------
+
+13- REFISTER USER
+
+if (
+    [fullName, email, username. password].some((field) => 
+    field?.trim() === "")) 
+ismy hum ny array bana k sb field lagae, phr some laga k call back pass kia, phr hum kehty k agr ye field h (field?) to usko trim krdo, agr trim k bd bh wo empty h (=== "") to wo true return kry ga,agr wo TRUE return kry ga to wo field khali thaa

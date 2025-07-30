@@ -55,7 +55,7 @@ const userSchema = new Schema(
 // Save sy pehle password hash karo
 userSchema.pre("save", async function (next) {
     if(!this.isModified("password")) return next();   // Agar password change nahi to skip
-    this.password = bcrypt.hash(this.password, 10)    // Password ko 10 salt rounds k sath hash karo
+    this.password = await bcrypt.hash(this.password, 10)    // Password ko 10 salt rounds k sath hash karo
     next() 
 })
 
